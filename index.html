@@ -174,11 +174,17 @@ section {
 }
 
 .dropdown-content {
-    display: none;
-    padding: 18px;
-    margin-top: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    padding: 0 18px;
     background: rgba(0,255,200,0.05);
     border-radius: 12px;
+}
+
+.dropdown-content.active {
+    max-height: 600px;
+    padding: 18px;
 }
 
 .active {
@@ -285,11 +291,31 @@ body::after {
 
 <section id="portfolio">
     <h2>Portfolio</h2>
-    <div class="card">
-        <h3>Project Showcase</h3>
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe>
-        <p>Gameplay system demonstration.</p>
+
+    <div class="dropdown" onclick="toggleDropdown(this)">
+        🔹 Combat System Showcase
     </div>
+    <div class="dropdown-content">
+        <p>Advanced melee + PvE combat system with scalable architecture.</p>
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe>
+    </div>
+
+    <div class="dropdown" onclick="toggleDropdown(this)">
+        🔹 Custom Physics Engine
+    </div>
+    <div class="dropdown-content">
+        <p>Custom physics simulation built for performance-heavy systems.</p>
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe>
+    </div>
+
+    <div class="dropdown" onclick="toggleDropdown(this)">
+        🔹 UI & Animation System
+    </div>
+    <div class="dropdown-content">
+        <p>Fully animated GUI logic with smooth transitions and state management.</p>
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe>
+    </div>
+
 </section>
 
 <section id="contact">
