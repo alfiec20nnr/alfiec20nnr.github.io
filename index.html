@@ -332,7 +332,7 @@ html {
 <div class="stats-section">
 
     <div class="stat">
-        <h3 class="counter" data-target="10000">0</h3>
+        <h3 class="counter" data-target="10000" data-suffix="K+">0</h3>
         <p>Highest CCU</p>
     </div>
 
@@ -342,7 +342,7 @@ html {
     </div>
 
     <div class="stat">
-        <h3 class="counter" data-target="100000000">0</h3>
+        <h3 class="counter" data-target="100000000" data-suffix="M+">0</h3>
         <p>Visits</p>
     </div>
 
@@ -459,6 +459,25 @@ function toggleDropdown(element) {
 }
 </script>
 
+<div class="stats-section">
+
+    <div class="stat">
+        <h3 class="counter" data-target="10000" data-suffix="K+">0</h3>
+        <p>Highest CCU</p>
+    </div>
+
+    <div class="stat">
+        <h3 class="counter" data-target="4">0</h3>
+        <p>Years of Professional Experience</p>
+    </div>
+
+    <div class="stat">
+        <h3 class="counter" data-target="100000000" data-suffix="M+">0</h3>
+        <p>Visits</p>
+    </div>
+
+</div>
+
 <script>
 const counters = document.querySelectorAll('.counter');
 let started = false;
@@ -472,6 +491,7 @@ function startCounting() {
     if (triggerTop < window.innerHeight - 100) {
         counters.forEach(counter => {
             const target = +counter.getAttribute('data-target');
+            const suffix = counter.getAttribute('data-suffix') || '';
             let count = 0;
             const increment = target / 100;
 
@@ -481,7 +501,7 @@ function startCounting() {
                     counter.innerText = Math.floor(count).toLocaleString();
                     requestAnimationFrame(updateCount);
                 } else {
-                    counter.innerText = target.toLocaleString();
+                    counter.innerText = Math.floor(target).toLocaleString() + suffix;
                 }
             };
 
