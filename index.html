@@ -206,6 +206,34 @@ section h2 {
 }
 
 /* ===============================
+   💀 STATS
+=================================*/
+
+.stats-section {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 2.5rem;
+    color: #00ffc8;
+    text-shadow: 0 0 20px #00ffc8;
+}
+
+.stat p {
+    margin-top: 10px;
+    opacity: 0.8;
+    font-size: 1rem;
+}
+
+/* ===============================
    🎥 VIDEO
 =================================*/
 
@@ -299,6 +327,25 @@ html {
     <h2>Full-Stack Roblox Developer</h2>
     <p>Combat Systems • Game Systems • Custom Physics • UI Logic</p>
     <a href="#contact" class="btn">Hire Me</a>
+</div>
+
+<div class="stats-section">
+
+    <div class="stat">
+        <h3 class="counter" data-target="10K">0</h3>
+        <p>Highest CCU</p>
+    </div>
+
+    <div class="stat">
+        <h3 class="counter" data-target="8">0</h3>
+        <p>$ Made</p>
+    </div>
+
+    <div class="stat">
+        <h3 class="counter" data-target="4">0</h3>
+        <p>Years Experience</p>
+    </div>
+
 </div>
 
 <section id="about">
@@ -410,6 +457,42 @@ function toggleDropdown(element) {
     let content = element.nextElementSibling;
     content.classList.toggle("active");
 }
+</script>
+
+<script>
+const counters = document.querySelectorAll('.counter');
+let started = false;
+
+function startCounting() {
+    if (started) return;
+
+    const trigger = document.querySelector('.stats-section');
+    const triggerTop = trigger.getBoundingClientRect().top;
+
+    if (triggerTop < window.innerHeight - 100) {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            const increment = target / 100;
+
+            const updateCount = () => {
+                if (count < target) {
+                    count += increment;
+                    counter.innerText = Math.floor(count).toLocaleString();
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target.toLocaleString();
+                }
+            };
+
+            updateCount();
+        });
+
+        started = true;
+    }
+}
+
+window.addEventListener('scroll', startCounting);
 </script>
 
 </body>
