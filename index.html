@@ -182,15 +182,23 @@ section h2 {
 .dropdown-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.3s ease;
+    transition: max-height 0.6s ease, padding 0.3s ease;
     padding: 0 18px;
     background: rgba(0,255,200,0.05);
     border-radius: 12px;
 }
 
 .dropdown-content.active {
-    max-height: 600px;
-    padding: 18px;
+    max-height: 2000px; /* Large enough to never cut off */
+    padding: 20px 18px;
+}
+
+.dropdown-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 15px;
 }
 
 .active {
