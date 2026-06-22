@@ -643,6 +643,66 @@
     }
     .terms-agree strong { color: var(--ink); font-weight: 600; }
 
+    /* ── GAMES ───────────────────────────────────────── */
+    #games { padding: 6rem 0; border-top: 1px solid var(--border); }
+    .games-head { margin-bottom: 2.75rem; }
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .game-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--ease), transform var(--ease);
+    }
+    .game-card:hover { border-color: rgba(61, 111, 255, 0.32); transform: translateY(-2px); }
+    .game-thumb {
+      aspect-ratio: 16 / 9;
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+    .game-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .game-info {
+      padding: 1.25rem 1.375rem 1.375rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .game-title {
+      font-family: var(--f-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .game-desc { font-size: 0.85rem; color: var(--ink-2); line-height: 1.6; flex: 1; margin-bottom: 1.125rem; }
+    .game-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      align-self: flex-start;
+      padding: 0.5rem 1rem;
+      background: var(--accent-lo);
+      border: 1px solid rgba(61, 111, 255, 0.25);
+      border-radius: var(--r);
+      font-family: var(--f-display);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      transition: background var(--ease), border-color var(--ease);
+    }
+    .game-btn:hover { background: rgba(61, 111, 255, 0.2); border-color: rgba(61, 111, 255, 0.4); }
+    .game-btn svg {
+      width: 13px; height: 13px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
       .about-grid,
@@ -655,6 +715,7 @@
       .stat { border-right: none; border-bottom: 1px solid var(--border); }
       .stat:last-child { border-bottom: none; }
       .code-win { display: none; }
+      .games-grid { grid-template-columns: 1fr; }
       #hero { padding-top: 72px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -855,6 +916,64 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GAMES ───────────────────────────────────────── -->
+  <section id="games">
+    <div class="wrap">
+      <div class="games-head">
+        <p class="eye">Games</p>
+        <h2 class="h2">Play the work.</h2>
+      </div>
+      <div class="games-grid">
+  
+        <!-- GAME 1: replace href="#" with Roblox URL, src="" with thumbnail URL, update title & desc -->
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="" alt="Game 1">
+          </div>
+          <div class="game-info">
+            <h3 class="game-title">Game Title</h3>
+            <p class="game-desc">Short description — genre, key features, or what you built.</p>
+            <a href="https://www.roblox.com/games/133216617953067/BASH-UTG-MM2" target="_blank" rel="noopener" class="game-btn">
+              Play on Roblox
+              <svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+  
+        <!-- GAME 2 -->
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="" alt="Game 2">
+          </div>
+          <div class="game-info">
+            <h3 class="game-title">Game Title</h3>
+            <p class="game-desc">Short description — genre, key features, or what you built.</p>
+            <a href="https://www.roblox.com/games/113303333910928/Dive-For-Brainrots" target="_blank" rel="noopener" class="game-btn">
+              Play on Roblox
+              <svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+  
+        <!-- GAME 3 -->
+        <div class="game-card">
+          <div class="game-thumb">
+            <img src="" alt="Game 3">
+          </div>
+          <div class="game-info">
+            <h3 class="game-title">Game Title</h3>
+            <p class="game-desc">Short description — genre, key features, or what you built.</p>
+            <a href="https://www.roblox.com/games/109319770402052/Volcano-Escape-For-Brainrots" target="_blank" rel="noopener" class="game-btn">
+              Play on Roblox
+              <svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+  
       </div>
     </div>
   </section>
