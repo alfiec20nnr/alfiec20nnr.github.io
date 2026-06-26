@@ -749,8 +749,6 @@
       .stat:last-child { border-bottom: none; }
       .code-win { display: none; }
       .games-grid { grid-template-columns: 1fr; }
-      header { top: 30px; }
-      #hero { padding-top: 106px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -1235,6 +1233,21 @@
   </footer>
 
   <script>
+
+    /* Dynamic announcement bar + header offset */
+    function fixLayout() {
+      var bar = document.querySelector('.announce');
+      var nav = document.querySelector('header');
+      var hero = document.getElementById('hero');
+      if (!bar || !nav || !hero) return;
+      var barH = bar.offsetHeight;
+      var navH = nav.offsetHeight;
+      nav.style.top = barH + 'px';
+      hero.style.paddingTop = (barH + navH + 16) + 'px';
+    }
+    fixLayout();
+    window.addEventListener('resize', fixLayout);
+    
     /* YouTube click-to-play: loads iframe only when user clicks */
     document.querySelectorAll('.vid-wrap').forEach(function(wrap) {
       wrap.querySelector('.play-btn').addEventListener('click', function() {
